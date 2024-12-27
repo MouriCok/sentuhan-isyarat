@@ -11131,7 +11131,8 @@ header.masthead .masthead-heading {
 .timeline > li {
   position: relative;
   min-height: 50px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .timeline > li:after, .timeline > li:before {
   display: table;
@@ -11215,7 +11216,7 @@ header.masthead .masthead-heading {
   }
   .timeline > li {
     min-height: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
   }
   .timeline > li .timeline-panel {
     float: left;
