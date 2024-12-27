@@ -38,4 +38,4 @@ This project enables real-time sign language detection and recognition using **T
 ---
 
 ### Example Website
-Sentuhan Isyrat(`https://mouricok.github.io/sentuhan-isyarat/`)
+- **Link:** [Sentuhan Isyarat](`https://mouricok.github.io/sentuhan-isyarat/`)
