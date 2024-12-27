@@ -7,6 +7,9 @@
         <meta name="author" content="" />
         <title>Sentuhan Isyarat</title>
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
@@ -18,6 +21,11 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="dist/css/stylesss.css" rel="stylesheet" />
         <link href="dist/css/card.css" rel="stylesheet" />
+        <style>
+            #charCounter {
+                transition: color 0.2s ease, font-weight 0.2s ease;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -95,7 +103,7 @@
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
                                 <div class="imgSideDetect">
-                                    <img class="img-fluid" src="https://meetingtomorrow.com/wp-content/uploads/2019/08/8BFF6F3C-C291-890F-3AAEFEF23C37C013.jpg" width="100%" height="100%" crossorigin="anonymous" alt="..." />
+                                    <img class="img-fluid" src="./dist/assets/img/sign-talking.png" width="100%" height="100%" crossorigin="anonymous" alt="..." />
                                 </div>
                             </a>
                             <div class="portfolio-caption">
@@ -115,57 +123,73 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Empowering communication through technology.</h3>
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/about/1.jpeg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>2023</h4>
+                                <h4 class="subheading">The Beginning</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    This project started with a simple yet powerful idea: to bridge the gap in communication for the hearing-impaired community using modern technology. Combining passion for accessibility and artificial intelligence, the groundwork for this platform was laid.
+                                </p>
+                            </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/hand_landmark.png" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>2023</h4>
+                                <h4 class="subheading">Building the Foundation</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Leveraging <u>TensorFlow.js</u> and <u>MediaPipe</u>, we created an application that detects and predicts sign language alphabets in real-time. Early versions focused on establishing reliable hand landmark detection and gesture prediction.
+                                </p>
+                            </div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/about/3.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>2024</h4>
+                                <h4 class="subheading">Community Involvement</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    A major milestone was enabling users to contribute their own datasets. This feature empowered the community to train custom models using their unique sign gestures, making the application more inclusive and personalized.
+                                </p>
+                            </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="dist/assets/img/about/4.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>Future Goals</h4>
+                                <h4 class="subheading">Expanding Horizons</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    The next phase aims to incorporate sentence prediction and multilingual sign language support. We envision a world where technology can break down communication barriers, fostering greater understanding and inclusion.
+                                </p>
+                            </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
+                                Join Us
                                 <br />
-                                Of Our
+                                On This
                                 <br />
-                                Story!
+                                Journey!
                             </h4>
                         </div>
                     </li>
@@ -177,57 +201,77 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">We would love to hear from you!</h3>
                 </div>
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <br>
+                <form id="contactForm" action="contact.php" method="POST">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" name="name" type="text" placeholder="Your Name *" required />
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <input class="form-control" name="email" type="email" placeholder="Your Email *" required />
                             </div>
-                            <div class="form-group mb-md-0">
+                            <div class="form-group">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <input class="form-control" name="phone" type="tel" placeholder="Your Phone *" required />
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 position-relative">
                             <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <!-- Message input -->
+                                <textarea 
+                                    class="form-control" 
+                                    name="message" 
+                                    placeholder="Your Message *" 
+                                    style="height: 246px;" 
+                                    maxlength="1001" 
+                                    required
+                                    id="messageTextarea"></textarea>
+                                <!-- Live character counter -->
+                                <small 
+                                    id="charCounter" 
+                                    class="form-text position-absolute" 
+                                    style="bottom: 0px; left: 15px; color: #fff;">
+                                    0/1000
+                                </small>
                             </div>
-                        </div>
+                        </div>                                              
                     </div>
-                    <!-- Submit success message-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                    </div>
                 </form>
             </div>
         </section>
+
+        <!-- Contact Modal -->
+        <div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="responseModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="responseModalLabel">Message Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="responseMessage">
+                        <!-- Message content will be injected here -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Sentuhan Isyarat 2023</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -240,11 +284,61 @@
                 </div>
             </div>
         </footer>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
         
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const textarea = document.getElementById("messageTextarea");
+            const charCounter = document.getElementById("charCounter");
+            const maxLength = 1000;
+
+            textarea.addEventListener("input", () => {
+                const currentLength = textarea.value.length;
+
+                // Update character counter text
+                charCounter.textContent = `${currentLength}/${maxLength}`;
+
+                // Validation: If character count exceeds the limit
+                if (currentLength > maxLength) {
+                    charCounter.style.color = "red"; // Change counter color to red
+                    charCounter.style.fontWeight = "bold"; // Make it bold
+                } else {
+                    charCounter.style.color = "#fff"; // Default muted color
+                    charCounter.style.fontWeight = "normal"; // Normal font weight
+                }
+            });
+
+            const form = document.getElementById("contactForm");
+            const responseModal = new bootstrap.Modal(document.getElementById("responseModal"));
+            const responseMessage = document.getElementById("responseMessage");
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault(); // Prevent default form submission behavior
+
+                // Gather form data
+                const formData = new FormData(form);
+
+                try {
+                    // Send form data to PHP
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: formData,
+                    });
+
+                    const result = await response.json(); // Parse JSON response
+                    responseMessage.textContent = result.message;
+
+                    // Show modal
+                    responseModal.show();
+
+                    // Reset form on success
+                    if (result.status === "success") {
+                        form.reset();
+                    }
+                } catch (error) {
+                    responseMessage.textContent = "An error occurred. Please try again.";
+                    responseModal.show();
+                }
+            });
+        </script>
         <!-- Core theme JS-->
         <script src="dist/js/scroll.js"></script>
         <script type="module" src="./script.js"></script>
