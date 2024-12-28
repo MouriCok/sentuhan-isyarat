@@ -22,20 +22,5 @@ This project enables real-time sign language detection and recognition using **T
 
 ---
 
-## Installation
-### Prerequisites
-- Node.js and npm installed
-- TensorFlow and OpenCV installed
-- MediaPipe HandLandmarker Test for Web
-- XAMPP or any web server for local hosting
-- A modern web browser with webcam support
-
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MouriCok/sentuhan-isyarat.git
-
----
-
 ### Example Website
 - **Link:** [Sentuhan Isyarat](https://mouricok.github.io/sentuhan-isyarat/)
