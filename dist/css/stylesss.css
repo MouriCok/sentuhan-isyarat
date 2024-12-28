@@ -10911,7 +10911,7 @@ p {
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
   letter-spacing: 0.0625em;
-  transition: font-size 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
   font-size: 1.1rem;
@@ -10959,6 +10959,82 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
   background: transparent;
 }
+
+header.mastheadLogin {
+  position: relative;
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  background-image: url("../assets/img/yellow-door.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden; /* Ensure pseudo-element doesn't overflow the header */
+}
+
+header.mastheadLogin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+  background-position: inherit;
+  background-size: inherit;
+  filter: blur(5px); /* Adjust the blur intensity as needed */
+  z-index: 0;
+}
+
+header.mastheadLogin .container {
+  position: relative;
+  z-index: 1; /* Ensure text and button are above the blurred background */
+}
+
+header.mastheadLogin .mastheadLogin-subheading {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.5rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 1px #000;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+header.mastheadLogin .mastheadLogin-heading {
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 3.25rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 1px #000;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@media (min-width: 768px) {
+  header.mastheadLogin {
+    padding-top: 14rem;
+    padding-bottom: 12.5rem;
+  }
+  header.mastheadLogin > .container > #signup-form{
+    padding-top: 9rem;
+    padding-bottom: 11rem;
+  }
+  header.mastheadLogin .mastheadLogin-subheading {
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+  }
+  header.mastheadLogin .mastheadLogin-heading {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 4.5rem;
+    margin-bottom: 4rem;
+  }
+}
+
 header.masthead {
   position: relative;
   padding-top: 10.5rem;

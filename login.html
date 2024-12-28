@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Sentuhan Isyarat</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="dist/assets/img/SI_icon.png" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="dist/css/stylesss.css" rel="stylesheet" />
+    <link href="dist/css/card.css" rel="stylesheet" />
+    <style>
+        /* Add custom styling for login form box */
+        .login-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        h3, .form-label {
+            color: black;
+        }
+        #alert-message {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px;
+            background-color: #af4c4c;
+            color: white;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+        #success-message {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void(0);" onclick="goBack(event);"><span class="fa fa-arrow-circle-left"></span><img src="dist/assets/img/SI_navbar.png" alt="Sentuhan Isyarat" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="alert-message"></div>
+    <div id="success-message"></div>
+
+    <!-- Masthead Login-->
+    <header class="mastheadLogin">
+        <div class="container">
+            <div class="login-box" id="form-container">
+                <!-- Login Form -->
+                <form id="login-form" action="./login.php" method="POST">
+                    <h3 class="text-center mb-4">Login</h3>
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <div class="mt-2 text-center">
+                        <small class="text-muted">Don't have an account? <a href="javascript:void(0);" onclick="toggleForm()">Sign up</a></small>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" action="./signup.php" method="POST" style="display: none;">
+                    <h3 class="text-center mb-4">Sign Up</h3>
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="new-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="new-username" name="new-username" required>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="new-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="new-password" name="new-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                    <div class="mt-2 text-center">
+                        <small class="text-muted">Already have an account? <a href="javascript:void(0);" onclick="toggleForm()">Login</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Response Modal (for both login and signup success) -->
+    <div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="responseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="responseModalLabel">Message Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="responseMessage">
+                    <!-- Message content will be injected here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="modal-close-btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Sentuhan Isyarat 2023</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="" href="#!" aria-label=""><i class=""></i></a>
+                    <a class="" href="#!" aria-label=""><i class=""></i></a>
+                    <a class="" href="#!" aria-label=""><i class=""></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function goBack(event) {
+            event.preventDefault();
+            window.history.back();
+        }
+
+        function toggleForm() {
+            var loginForm = document.getElementById('login-form');
+            var signupForm = document.getElementById('signup-form');
+            var header = document.querySelector('header.mastheadLogin');
+            
+            if (loginForm.style.display !== 'none') {
+                // Change padding when showing the signup form
+                header.style.paddingTop = '12rem';
+                header.style.paddingBottom = '9rem';
+                // Hide login form and show signup form
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            } else {
+                // Revert padding when showing the login form
+                header.style.paddingTop = '14rem';
+                header.style.paddingBottom = '12.5rem';
+                // Hide signup form and show login form
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            }
+        }
+
+        // Function to show a top-middle alert
+        function showAlert(message) {
+            var alertBox = document.getElementById('alert-message');
+            alertBox.textContent = message;
+            alertBox.style.display = 'block';
+
+            // Hide the alert after 5 seconds
+            setTimeout(function() {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+        function showSuccess(message) {
+            var alertBox = document.getElementById('success-message');
+            alertBox.textContent = message;
+            alertBox.style.display = 'block';
+
+            // Hide the alert after 5 seconds
+            setTimeout(function() {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+
+        // Handle form submission for login and signup
+        document.getElementById('login-form').onsubmit = function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Ajax call to PHP login
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'login.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'success') {
+                    // Redirect to index.php
+                    window.location.href = 'index.php';
+                } else {
+                    showAlert('Invalid credentials. Please try again.');
+                }
+            };
+            xhr.send('username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
+        };
+
+        document.getElementById('signup-form').onsubmit = function(event) {
+            event.preventDefault();
+            var newUsername = document.getElementById('new-username').value;
+            var email = document.getElementById('email').value;
+            var newPassword = document.getElementById('new-password').value;
+
+            // Ajax call to PHP signup
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'signup.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'success') {
+                    showSuccess('Signup successful! You can now log in.');
+                } else {
+                    showAlert(response.message);
+                }
+            };
+            xhr.send('new-username=' + encodeURIComponent(newUsername) + '&email=' + encodeURIComponent(email) + '&new-password=' + encodeURIComponent(newPassword));
+        };
+    </script>
+
+    <!-- Core theme JS-->
+    <script src="dist/js/scroll.js"></script>
+</body>
+</html>
