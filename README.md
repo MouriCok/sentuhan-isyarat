@@ -19,8 +19,3 @@ This project enables real-time sign language detection and recognition using **T
 2. **Dataset Generation**: Users capture snapshots of gestures with corresponding labels, creating a dataset in `.csv` format.
 3. **Model Training**: Train a TensorFlow.js model on the dataset to classify hand gestures into alphabets.
 4. **Real-time Prediction**: The trained model predicts the alphabet displayed by the user's hand via webcam.
-
----
-
-### Example Website
-- **Link:** [Sentuhan Isyarat](https://mouricok.github.io/sentuhan-isyarat/)
